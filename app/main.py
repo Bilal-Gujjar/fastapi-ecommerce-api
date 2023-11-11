@@ -30,5 +30,8 @@ async def startup_db_test():
 
 # Include the API v1 router
 app.include_router(api_v1_router, prefix="/api" )
+@app.get("/")
+async def read_root():
+    return {"message": "Hello World"}
 
 # ... any additional setup or routes
