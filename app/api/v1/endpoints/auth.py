@@ -11,10 +11,13 @@ from datetime import timedelta
 router = APIRouter()
 
 @router.post("/signup", response_model=User)
-def signup(user: UserCreate,db: Session = Depends(get_db)):
-    db_user = db.query(UserModel).filter(UserModel.email == user.email).first()
-    if db_user:
+def signup(user: UserCreate, db: Session = Depends(get_db)):
+    db_user_email = db.query(UserModel).filter(UserModel.email == user.email).first()
+    db_user_username = db.query(UserModel).filter(UserModel.username == user.username).first()
+    if db_user_email:
         raise HTTPException(status_code=400, detail="Email already registered")
+    if db_user_username:
+        raise HTTPException(status_code=400, detail="Username already registered")
     hashed_password = get_password_hash(user.password)
     db_user = UserModel(email=user.email, hashed_password=hashed_password, username=user.username)
     db.add(db_user)
