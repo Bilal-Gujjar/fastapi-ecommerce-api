@@ -8,7 +8,7 @@ passlib[bcrypt]==1.7.4
 python-dotenv==0.20.0
 alembic==1.7.7
 pydantic==2.4.0
-pydantic-settings==0.1.0
+pydantic-settings==2.0.3 
 python-decouple==3.5
 fastapi-versioning==0.9.1
 fastapi-security==0.1.0
