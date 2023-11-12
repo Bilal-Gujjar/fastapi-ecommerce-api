@@ -7,7 +7,6 @@ python-multipart==0.0.5
 passlib[bcrypt]==1.7.4
 python-dotenv==0.20.0
 alembic==1.7.7
-pydantic==1.9.1
 python-decouple==3.5
 fastapi-versioning==0.9.1
 fastapi-security==0.1.0
