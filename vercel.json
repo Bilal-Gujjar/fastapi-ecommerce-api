@@ -1,15 +1,41 @@
 {
-  "version": 2,
   "builds": [
     {
-      "src": "./app//api/main.py",
+      "src": "app/main.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
+      "src": "/api/v1/user/(.*)",
+      "dest": "app/api/v1/endpoints/user.py"
+    },
+    {
+      "src": "/api/v1/product/(.*)",
+      "dest": "app/api/v1/endpoints/product.py"
+    },
+    {
+      "src": "/api/v1/sales/(.*)",
+      "dest": "app/api/v1/endpoints/sales.py"
+    },
+    {
+      "src": "/api/v1/inventory/(.*)",
+      "dest": "app/api/v1/endpoints/inventory.py"
+    },
+    {
+      "src": "/api/v1/*",
+      "dest": "app/api/v1/main.py"
+    },
+    {
+      "src": "/api/*",
+      "dest": "app/api/deps.py"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/app/api/main.py"
+      "dest": "app/main.py"
     }
-  ]
+  ],
+  "env": {
+    "APP_MODULE": "app.main:app"
+  }
 }
