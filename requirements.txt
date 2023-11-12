@@ -11,3 +11,4 @@ pydantic==1.9.1
 python-decouple==3.5
 fastapi-versioning==0.9.1
 fastapi-security==0.1.0
+
