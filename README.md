@@ -18,6 +18,80 @@ alembic revision --autogenerate -m "Create user table"
 alembic upgrade head
 
 
+ecommerce_manager/
+│
+├── app/                         
+│   ├── api/                     
+│   │   ├── v1/                   
+│   │   │   ├── endpoints/        
+│   │   │   │   ├── user.py
+│   │   │   │   ├── sales.py
+│   │   │   │   ├── inventory.py
+│   │   │   │   └── product.py
+│   │   │   ├── __init__.py
+│   │   │   └── main.py           
+│   │   └── deps.py               
+│   │
+│   ├── core/                     
+│   │   ├── config.py             # Configuration including logging config
+│   │   ├── security.py           
+│   │   └── database.py           
+│   │
+│   ├── middlewares/              # Middleware components
+│   │   ├── __init__.py
+│   │   ├── auth.py               # Authentication middleware
+│   │   └── logging.py            # Logging middleware
+│   │
+│   ├── models/                   
+│   │   ├── user.py
+│   │   ├── product.py
+│   │   ├── sales.py
+│   │   └── inventory.py
+│   │
+│   ├── schemas/                 
+│   │   ├── user.py
+│   │   ├── product.py
+│   │   ├── sales.py
+│   │   └── inventory.py
+│   │
+│   ├── services/                
+│   │   ├── user_service.py
+│   │   ├── product_service.py
+│   │   ├── sales_service.py
+│   │   └── inventory_service.py
+│   │
+│   ├── utils/                   
+│   │   └── timezone.py          
+│   │
+│   ├── main.py                  
+│   └── __init__.py
+│
+├── tests/                       
+│   ├── api/
+│   │   ├── v1/
+│   │   ├── user/
+│   │   ├── product/
+│   │   ├── sales/
+│   │   └── inventory/
+│   │
+│   ├── services/
+│   ├── conftest.py
+│   └── __init__.py
+│
+├── alembic/                     
+│   ├── versions/
+│   └── alembic.ini
+│
+├── logs/                        
+│   ├── access.log               # Log for access details
+│   └── error.log                # Log for errors and exceptions
+│                 
+├── docker-compose.yml           
+├── .env                         
+├── .gitignore
+├── README.md
+└── requirements.txt
+
 
 # fastapi-ecommerce-api
 DATABASE_URL=postgresql://admin:12345678@localhost:5432/localdb
