@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-
+from typing import Optional
 class UserBase(BaseModel):
     email: str
     username: str
@@ -19,4 +19,4 @@ class Token(BaseModel):
     token_type: str
 
 class TokenData(BaseModel):
-    email: str | None = None
+     email: Optional[str] = None

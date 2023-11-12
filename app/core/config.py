@@ -1,5 +1,6 @@
 # app/core/config.py
-from pydantic_settings import BaseSettings
+from pydantic import BaseSettings
+
 class Settings(BaseSettings):
     database_url: str
     secret_key: str
