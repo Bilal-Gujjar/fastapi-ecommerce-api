@@ -24,7 +24,7 @@ async def startup_db_test():
     try:
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
-        logger.info("Database connection test successful.")
+        logger.info("Database------->connection test successful###")
     except OperationalError as e:
         logger.critical(f"Database connection test failed: {e}")
         # Depending on your requirements, you might want to stop app launch if the DB can't connect.
