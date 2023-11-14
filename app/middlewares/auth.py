@@ -22,4 +22,3 @@ async def auth_middleware(request: Request, call_next):
             return JSONResponse(status_code=401, content={"message": "Could not validate token"})
     return await call_next(request)
 
-# ... other parts of your FastAPI app
