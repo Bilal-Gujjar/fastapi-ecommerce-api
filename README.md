@@ -8,6 +8,8 @@ A backend API using FastAPI for managing e-commerce operations.
 ```bash
 docker-compose build
 
+Run App locally
+ uvicorn app.main:app --reload
 
 2. Run the Migeration:
 ```bash

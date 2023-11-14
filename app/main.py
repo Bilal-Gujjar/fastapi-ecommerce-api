@@ -3,6 +3,8 @@ import logging
 from fastapi import FastAPI,Depends
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import OperationalError
+from app.middlewares.auth import auth_middleware
+
 
 from app.api.main import router as api_v1_router  # Adjust this import if necessary
 from app.core.config import settings  # Adjust the import path as necessary for your config settings
@@ -15,7 +17,7 @@ logger = logging.getLogger(__name__)
 engine = create_engine(settings.database_url)
 
 app = FastAPI()
-
+app.middleware("http")(auth_middleware)
 @app.on_event("startup")
 async def startup_db_test():
     # Try to connect to the database to ensure it's up

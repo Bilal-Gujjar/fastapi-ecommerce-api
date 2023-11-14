@@ -1,3 +1,4 @@
+#app/core/security.py
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
 from typing import Optional
@@ -42,3 +43,4 @@ def authenticate_user(username: str, password: str, db: Session = Depends(get_db
     if not verify_password(password, user.hashed_password):
         return False
     return user
+

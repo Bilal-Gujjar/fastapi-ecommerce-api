@@ -5,7 +5,7 @@ from app.core.security import create_access_token, get_password_hash, verify_pas
 from app.core.config import settings
 from app.core.database import get_db
 from app.models.user import User as UserModel
-from app.schemas.user import UserCreate, Token, User
+from app.schemas.user import UserCreate, Token, User , LoginForm
 from datetime import timedelta
 
 router = APIRouter()
@@ -27,13 +27,12 @@ def signup(user: UserCreate, db: Session = Depends(get_db)):
 
 
 @router.post("/login", response_model=Token)
-def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
-    user = db.query(UserModel).filter(UserModel.email == form_data.username).first()
+def login_for_access_token(form_data: LoginForm, db: Session = Depends(get_db)):
+    user = db.query(UserModel).filter((UserModel.email == form_data.email) | (UserModel.username == form_data.username)).first()
     if not user or not verify_password(form_data.password, user.hashed_password):
-        raise HTTPException(status_code=401, detail="Incorrect email or password")
+        raise HTTPException(status_code=401, detail="Incorrect email/username or password")
     access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
     access_token = create_access_token(
         data={"sub": user.email}, expires_delta=access_token_expires
     )
     return {"access_token": access_token, "token_type": "bearer"}
-

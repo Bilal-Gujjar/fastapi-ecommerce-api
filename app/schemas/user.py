@@ -1,3 +1,4 @@
+#app/schemas/user.py
 from pydantic import BaseModel
 from typing import Optional
 class UserBase(BaseModel):
@@ -20,3 +21,8 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
      email: Optional[str] = None
+
+class LoginForm(BaseModel):
+    username: Optional[str] = None
+    email: Optional[str] = None
+    password: str
