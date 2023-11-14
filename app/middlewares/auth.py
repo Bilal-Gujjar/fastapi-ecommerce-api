@@ -3,7 +3,7 @@ from jose import jwt
 from app.core.config import settings
 
 async def auth_middleware(request: Request, call_next):
-    if request.url.path not in ["/api/v1/login", "/api/v1/signup"]:
+    if request.url.path not in ["/api/v1/login", "/api/v1/signup", "/"]:
         authorization: str = request.headers.get("Authorization")
         if not authorization:
             raise HTTPException(status_code=401, detail="Not authenticated")
