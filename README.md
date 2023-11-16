@@ -103,7 +103,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 FastApi123@
 admin@Acb1232
 
-DATABASE_URL=postgresql://postgres:admin%40Acb1232@db.jarmhqwuxrimwwriaycr.supabase.co:5432/postgres
+DATABASE_URL=postgresql://postgres:ecom123FastNew@db.trngippthznzuccbrfki.supabase.co:5432/postgres
 SECRET_KEY=YourSuperSecretKeyHere
 ACCESS_TOKEN_EXPIRE_MINUTES=30
+
 
