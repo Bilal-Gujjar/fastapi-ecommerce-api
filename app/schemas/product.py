@@ -8,8 +8,8 @@ class ProductBase(BaseModel):
     in_stock: int
 
 class ProductCreate(ProductBase):
-    pass
-
+    price: float
+    in_stock: int
 class Product(ProductBase):
     id: int
     class Config:
