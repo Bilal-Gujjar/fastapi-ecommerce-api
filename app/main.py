@@ -4,8 +4,7 @@ from fastapi import FastAPI,Depends
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import OperationalError
 from app.middlewares.auth import auth_middleware
-
-
+from fastapi.middleware.cors import CORSMiddleware
 from app.api.main import router as api_v1_router  # Adjust this import if necessary
 from app.core.config import settings  # Adjust the import path as necessary for your config settings
   # Adjust the import path as necessary for your security functions
@@ -17,6 +16,15 @@ logger = logging.getLogger(__name__)
 engine = create_engine(settings.database_url)
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
+
+
 app.middleware("http")(auth_middleware)
 @app.on_event("startup")
 async def startup_db_test():
