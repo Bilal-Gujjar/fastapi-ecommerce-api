@@ -13,4 +13,3 @@ class User(Base):
     email = Column(String(100), unique=True)
     hashed_password = Column(String(100))
     created_at = Column(DateTime, default=datetime.utcnow)
-    userId= Column(UUID(as_uuid=True), unique=True, default=uuid.uuid4)
