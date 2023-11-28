@@ -5,12 +5,13 @@ class ProductBase(BaseModel):
     name: str
     description: Optional[str]
     price: float
-    in_stock: int
 
 class ProductCreate(ProductBase):
     price: float
-    in_stock: int
+    initial_stock: Optional[int] = None
+
 class Product(ProductBase):
     id: int
     class Config:
         orm_mode = True
+        from_attributes = True

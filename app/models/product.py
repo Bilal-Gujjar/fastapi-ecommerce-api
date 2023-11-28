@@ -7,4 +7,3 @@ class Product(Base):
     name = Column(String(100))
     description = Column(String(300))
     price = Column(Float)
-    in_stock = Column(Integer)
