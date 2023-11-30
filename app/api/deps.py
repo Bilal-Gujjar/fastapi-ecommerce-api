@@ -11,4 +11,3 @@ def get_db():
         yield db
     finally:
         db.close()
-#app/api/deps.py

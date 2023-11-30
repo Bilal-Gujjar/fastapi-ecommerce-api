@@ -16,9 +16,8 @@ async def auth_middleware(request: Request, call_next):
             return JSONResponse(status_code=401, content={"message": "Invalid authentication scheme"})
         try:
             payload = jwt.decode(param, settings.secret_key, algorithms=[settings.algorithm])
-            request.state.user = payload.get("sub")  # Attach user information to the request state
+            request.state.user = payload.get("sub")  
         except JWTError as e:
-            # Instead of raising an exception, return a JSON response with the error details
             return JSONResponse(status_code=401, content={"message": "Could not validate token"})
     return await call_next(request)
 
