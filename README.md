@@ -35,14 +35,14 @@ ecommerce_manager/
 │   │   └── deps.py               
 │   │
 │   ├── core/                     
-│   │   ├── config.py             # Configuration including logging config
+│   │   ├── config.py             
 │   │   ├── security.py           
 │   │   └── database.py           
 │   │
-│   ├── middlewares/              # Middleware components
+│   ├── middlewares/              
 │   │   ├── __init__.py
-│   │   ├── auth.py               # Authentication middleware
-│   │   └── logging.py            # Logging middleware
+│   │   ├── auth.py               
+│   │   └── logging.py            
 │   │
 │   ├── models/                   
 │   │   ├── user.py
@@ -85,8 +85,8 @@ ecommerce_manager/
 │   └── alembic.ini
 │
 ├── logs/                        
-│   ├── access.log               # Log for access details
-│   └── error.log                # Log for errors and exceptions
+│   ├── access.log               
+│   └── error.log                
 │                 
 ├── docker-compose.yml           
 ├── .env                         
