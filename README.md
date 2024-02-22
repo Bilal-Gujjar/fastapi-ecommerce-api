@@ -95,16 +95,5 @@ ecommerce_manager/
 └── requirements.txt
 
 
-# fastapi-ecommerce-api
-DATABASE_URL=postgresql://admin:12345678@localhost:5432/localdb
-SECRET_KEY=YourSuperSecretKeyHere
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-
-FastApi123@
-admin@Acb1232
-
-DATABASE_URL=postgresql://postgres:ecom123FastNew@db.trngippthznzuccbrfki.supabase.co:5432/postgres
-SECRET_KEY=YourSuperSecretKeyHere
-ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 
